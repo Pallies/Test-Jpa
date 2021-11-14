@@ -1,4 +1,4 @@
-/target
-/src/main/resources/META-INF/
+target
+src/main/resources/META-INF/
 .classpath
 .project
