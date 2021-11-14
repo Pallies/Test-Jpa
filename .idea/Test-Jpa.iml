@@ -26,6 +26,10 @@
       <sourceFolder url="file://$MODULE_DIR$/src/test/java" isTestSource="true" />
       <excludeFolder url="file://$MODULE_DIR$/target" />
       <excludeFolder url="file://$MODULE_DIR$/.idea/dataSources" />
+      <excludeFolder url="file://$MODULE_DIR$/.idea/sonarlint/issuestore/6/c" />
+      <excludeFolder url="file://$MODULE_DIR$/.idea/sonarlint/issuestore/a/3" />
+      <excludeFolder url="file://$MODULE_DIR$/.idea/sonarlint/issuestore/a/9" />
+      <excludeFolder url="file://$MODULE_DIR$/.idea/sonarlint/issuestore/5" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
