@@ -1,4 +1,6 @@
 target
-src/main/resources/META-INF/
 .classpath
 .project
+.idea
+.settings
+src/main/resources/META-INF
