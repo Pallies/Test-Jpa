@@ -1,7 +1,6 @@
 package banque.entity.compte;
 
 import banque.entity.operation.Operation;
-import banque.entity.operation.Retrait;
 import banque.entity.operation.Virement;
 
 import javax.persistence.Column;
@@ -32,7 +31,19 @@ public class LivretA extends Compte implements Serializable {
         if (this.getSolde() == null)
             setSolde(assurance.getSolde());
     }
-
+    public void addOperation(Operation operation) {
+        setOperations(operation);
+        // si il y avait des opérations différentes
+        // entre un virement et une opération
+        if (operation instanceof Virement) {
+            Double newSolde =getSolde()+operation.getMontant()+ operation.getMontant()*taux;
+            setSolde(newSolde);
+        } else{
+            Double newSolde =getSolde()+operation.getMontant();
+            setSolde(newSolde);
+        }
+        operation.setCompte(this);
+    }
     public Double getTaux() {
         return taux;
     }

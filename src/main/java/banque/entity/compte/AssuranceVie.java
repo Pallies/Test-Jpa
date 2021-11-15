@@ -1,5 +1,8 @@
 package banque.entity.compte;
 
+import banque.entity.operation.Operation;
+import banque.entity.operation.Virement;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
@@ -19,11 +22,23 @@ public class AssuranceVie extends Compte implements Serializable {
     public AssuranceVie() {
     }
 
-    public AssuranceVie(LocalDate dateEnd, Double taux) {
-        dateFin = dateEnd;
+    public AssuranceVie(LocalDate dateFin, Double taux) {
+        this.dateFin = dateFin;
         this.taux = taux;
     }
-
+    public void addOperation(Operation operation) {
+        setOperations(operation);
+        // si il y avait des opérations différentes
+        // entre un virement et une opération
+        if (operation instanceof Virement) {
+            Double newSolde =getSolde()+operation.getMontant()+ operation.getMontant()*taux;
+            setSolde(newSolde);
+        } else{
+            Double newSolde =getSolde()+operation.getMontant();
+            setSolde(newSolde);
+        }
+        operation.setCompte(this);
+    }
     public void updateCompte(Compte compteOld) {
         AssuranceVie assurance = (AssuranceVie) compteOld;
         if (this.dateFin == null)
