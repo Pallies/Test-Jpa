@@ -2,6 +2,8 @@ package banque.entity.compte;
 
 import banque.entity.client.Client;
 import banque.entity.operation.Operation;
+import banque.entity.operation.Retrait;
+import banque.entity.operation.Virement;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -43,16 +45,18 @@ public abstract class Compte implements Serializable {
     public void updateCompte(Compte compteOld) {
     }
 
-    public void retrait(Operation operation) {
-        this.solde -= operation.getMontant();
+    public void addOperation(Operation operation) {
+        operations.add(operation);
+        if (operation instanceof Virement) {
+            this.solde += operation.getMontant();
+        } else if (operation instanceof Retrait) {
+            this.solde -= operation.getMontant();
+        }else{
+            this.solde += operation.getMontant();
+        }
         operation.setCompte(this);
-        this.operations.add(operation);
     }
-    public void virement(Operation operation) {
-        this.solde += operation.getMontant();
-        operation.setCompte(this);
-        this.operations.add(operation);
-    }
+
     public String getNumero() {
         return numero;
     }

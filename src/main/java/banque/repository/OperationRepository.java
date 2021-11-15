@@ -43,6 +43,7 @@ public class OperationRepository extends Repository implements IOperationDao {
 
     @Override
     public void assignOperationInCompte(Operation operation, Compte compte) {
-        //TODO
+        compte.addOperation(operation);
+        save(operation);
     }
 }

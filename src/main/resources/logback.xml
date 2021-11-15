@@ -10,7 +10,7 @@
     <logger name="runTestJpa" level="TRACE" additivity="false">
         <appender-ref ref="STDOUT"/>
     </logger>
-    <logger name="TestTp4" level="TRACE" additivity="false">
+    <logger name="TestTp4Tp5" level="TRACE" additivity="false">
         <appender-ref ref="STDOUT"/>
     </logger>
     <logger name="org.hibernate.SQL" level="DEBUG" additivity="false" />

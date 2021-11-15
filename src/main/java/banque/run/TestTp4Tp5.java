@@ -50,14 +50,15 @@ public class TestTp4Tp5 {
         clients.get(3).addCompte(assuranceVie.get(3));
         clients.get(3).addCompte(assuranceVie.get(2));
         ///// operation virement livretA
-        IOperationDao operationCompte=new OperationRepository();
 //        Operation operation=new Virement( LocalDate.now(),1687.89,"PAYE",clients.get(0).getNom());
         Operation operation=new Operation( LocalDate.now(),1687.89,"PAYE");
         IOperationDao repository = new OperationRepository();
-        repository.save(operation);
-//        operationCompte.save(operation);
-//        Compte livretAClient1 = clients.get(0).getComptes().stream().filter(c->c instanceof LivretA).collect(Collectors.toList()).get(0);
-//        operationCompte.assignOperationInCompte(operation,livretAClient1, VIREMENT);
-        LOGGER.trace("aperçu de la connexion : {}");
+        Compte livretAClient1 = clients.get(0)
+                .getComptes().stream()
+                .filter(c->c instanceof LivretA)
+                .collect(Collectors.toList()).get(0);
+        LOGGER.trace("etat du compte : {}",livretAClient1.getSolde());
+        repository.assignOperationInCompte(operation,livretAClient1);
+        LOGGER.trace("etat du compte : {} , après opération",livretAClient1.getSolde());
     }
 }

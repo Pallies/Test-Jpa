@@ -1,5 +1,9 @@
 package banque.entity.compte;
 
+import banque.entity.operation.Operation;
+import banque.entity.operation.Retrait;
+import banque.entity.operation.Virement;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;

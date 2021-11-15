@@ -40,7 +40,6 @@ public class Operation implements Serializable {
         this.motif = motif;
     }
 
-
     public LocalDate getDate() {
         return date;
     }

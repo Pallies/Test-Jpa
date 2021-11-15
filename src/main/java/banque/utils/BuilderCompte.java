@@ -54,8 +54,8 @@ public final class BuilderCompte {
     }
 
     private static String createNumeroCompte() {
-        Long rand = new Random().nextInt(1967687565) + 16789357678L;
-        Integer randKey = new Random().nextInt(91) + 10;
+        Long rand = new Random().nextInt(196687565) + 16789357678L;
+        Integer randKey = new Random().nextInt(90) + 10;
         Integer randChar = new Random().nextInt(26) + 1;
         StringBuilder numeroCompte = new StringBuilder()
                 .append(rand)
