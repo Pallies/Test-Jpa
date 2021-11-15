@@ -6,6 +6,7 @@ import banque.entity.client.Client;
 import banque.entity.compte.AssuranceVie;
 import banque.entity.compte.Compte;
 import banque.entity.compte.LivretA;
+import banque.entity.operation.Operation;
 import banque.repository.OperationRepository;
 import banque.utils.BuilderBanque;
 import banque.utils.BuilderClient;
@@ -13,6 +14,7 @@ import banque.utils.BuilderCompte;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -50,6 +52,9 @@ public class TestTp4Tp5 {
         ///// operation virement livretA
         IOperationDao operationCompte=new OperationRepository();
 //        Operation operation=new Virement( LocalDate.now(),1687.89,"PAYE",clients.get(0).getNom());
+        Operation operation=new Operation( LocalDate.now(),1687.89,"PAYE");
+        IOperationDao repository = new OperationRepository();
+        repository.save(operation);
 //        operationCompte.save(operation);
 //        Compte livretAClient1 = clients.get(0).getComptes().stream().filter(c->c instanceof LivretA).collect(Collectors.toList()).get(0);
 //        operationCompte.assignOperationInCompte(operation,livretAClient1, VIREMENT);

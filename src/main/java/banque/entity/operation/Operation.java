@@ -11,6 +11,7 @@ import java.time.LocalDate;
 @Table(name = "OPERATION")
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name = "OP_TYPE")
+@DiscriminatorValue("OP")
 public class Operation implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

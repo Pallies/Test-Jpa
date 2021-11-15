@@ -8,7 +8,7 @@ import java.time.LocalDate;
 public class Virement extends Operation {
 
 
-    @Column(name = "BENEFI", nullable = false)
+    @Column(name = "BENEFI")
     private String beneficiaire;
 
     public Virement() {
